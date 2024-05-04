@@ -22,6 +22,12 @@ namespace BibliotecaVirtu.Models.Repositorys
             ContextDateFake.Livros.Add(livro);
         }
 
+        public void Excluir(string id)
+        {
+            var objPesquisa = PesquissrPorId(id);
+            ContextDateFake.Livros.Remove(objPesquisa);
+        }
+
         public List<LivroDTO> listar()
         {
             var livros = ContextDateFake.Livros;

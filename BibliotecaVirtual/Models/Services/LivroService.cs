@@ -38,6 +38,18 @@ namespace BibliotecaVirtu.Models.Servise
             }
         }
 
+        public void Excluir(string id)
+        {
+            try
+            {
+                _livroRepository.Excluir(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<LivroDTO> listar()
         {
             try

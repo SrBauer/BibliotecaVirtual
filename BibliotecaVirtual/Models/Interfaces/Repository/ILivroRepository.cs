@@ -10,6 +10,8 @@ namespace BibliotecaVirtu.Models.Interfaces.Repositorys
         LivroDTO PesquissrPorId(string id);
 
         void Atualizar(LivroDTO livro);
+
+        void Excluir(string id);
     }
 }
 

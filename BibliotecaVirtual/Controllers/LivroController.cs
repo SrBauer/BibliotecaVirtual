@@ -58,6 +58,7 @@ namespace BibliotecaVirtu.Controllers
         {
             if (string.IsNullOrWhiteSpace(id))
                 return NotFound();
+
             var livro = _livroService.PesquisarPorId(id);
             if (livro == null)
                 return NotFound();
@@ -82,5 +83,37 @@ namespace BibliotecaVirtu.Controllers
                 throw ex;
             }
         }
+
+        public IActionResult Details(string? id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return NotFound();
+
+            var livro = _livroService.PesquisarPorId(id);
+            if (livro == null)
+                return NotFound();
+
+            return View(livro);
+        }
+
+        public IActionResult Delete(string? id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return NotFound();
+
+            var livro = _livroService.PesquisarPorId(id);
+            if (livro == null)
+                return NotFound();
+
+            return View(livro);
+        }
+        [HttpPost]
+        public IActionResult Delete([Bind("Id, Nome, Autor, Editora")] LivroDTO livro)
+        {
+            _livroService.Excluir(livro.Id);
+            return RedirectToAction("List");
+        }
+                
+        
     }
 }

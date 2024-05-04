@@ -10,6 +10,8 @@ namespace BibliotecaVirtu.Models.Interfaces.Services
         LivroDTO PesquisarPorId(string id);
 
         void Atualizar(LivroDTO livro);
+
+        void Excluir(string id);
     }
 }
 
